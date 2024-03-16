@@ -18,8 +18,8 @@ function HeroSection() {
           <h1 className="text-3xl font-bold leading-10 text-white md:font-extrabold lg:text-[2.6rem] lg:leading-[3.5rem]">
             Hello, <br />
             This is <span className=" text-pink-500">{personalData.name}</span>
-            {` , I'm a Professional`}
-            <span className="block text-[#16f2b3]">
+            {` , I'm a Professional `}
+            <span className="inline text-[#16f2b3]">
               {personalData.designation}.
             </span>
           </h1>
@@ -59,78 +59,11 @@ function HeroSection() {
             <div className="flex flex-row space-x-2">
               <div className="h-3 w-3 rounded-full bg-red-400"></div>
               <div className="h-3 w-3 rounded-full bg-orange-400"></div>
-              <div className="h-3 w-3 rounded-full bg-green-200"></div>
+              <div className="h-3 w-3 rounded-full bg-green-400"></div>
             </div>
           </div>
           <div className="overflow-hidden border-t-[2px] border-indigo-900 px-4 lg:px-8 py-4 lg:py-8">
-            <code className="font-mono text-xs md:text-sm lg:text-base">
-              <div className="blink">
-                <span className="mr-2 text-pink-500">const</span>
-                <span className="mr-2 text-white">coder</span>
-                <span className="mr-2 text-pink-500">=</span>
-                <span className="text-gray-400">{"{"}</span>
-              </div>
-              <div>
-                <span className="ml-4 lg:ml-8 mr-2 text-white">name:</span>
-                <span className="text-gray-400">{`'`}</span>
-                <span className="text-amber-300">{personalData.name}</span>
-                <span className="text-gray-400">{`',`}</span>
-              </div>
-              <div className="ml-4 lg:ml-8 mr-2">
-                <span className=" text-white">skills:</span>
-                <span className="text-gray-400">{`['`}</span>
-                {skillsData.map((skill, i) => (
-                  <React.Fragment key={skill}>
-                    <span className="text-amber-300">{skill}</span>
-                    {skillsData.length - 1 > i && (
-                      <span className="text-gray-400">&apos;, &apos;</span>
-                    )}
-                  </React.Fragment>
-                ))}
-                <span className="text-gray-400">{"'],"}</span>
-              </div>
-              <CoderItem title="hardWorker" value="true" />
-              <CoderItem title="quickLearner" value="true" />
-              <CoderItem title="problemSolver" value="true" />
-              <div>
-                <span className="ml-4 lg:ml-8 mr-2 text-green-400">
-                  hireable:
-                </span>
-                <span className="text-orange-400">function</span>
-                <span className="text-gray-400">{"() {"}</span>
-              </div>
-              <div>
-                <span className="ml-8 lg:ml-16 mr-2 text-orange-400">
-                  return
-                </span>
-                <span className="text-gray-400">{`(`}</span>
-              </div>
-              <div>
-                <span className="ml-12 lg:ml-24 text-cyan-400">this.</span>
-                <span className="mr-2 text-white">hardWorker</span>
-                <span className="text-amber-300">&amp;&amp;</span>
-              </div>
-              <div>
-                <span className="ml-12 lg:ml-24 text-cyan-400">this.</span>
-                <span className="mr-2 text-white">problemSolver</span>
-                <span className="text-amber-300">&amp;&amp;</span>
-              </div>
-              <div>
-                <span className="ml-12 lg:ml-24 text-cyan-400">this.</span>
-                <span className="mr-2 text-white">skills.length</span>
-                <span className="mr-2 text-amber-300">&gt;=</span>
-                <span className="text-orange-400">5</span>
-              </div>
-              <div>
-                <span className="ml-8 lg:ml-16 mr-2 text-gray-400">{`);`}</span>
-              </div>
-              <div>
-                <span className="ml-4 lg:ml-8 text-gray-400">{`};`}</span>
-              </div>
-              <div>
-                <span className="text-gray-400">{`};`}</span>
-              </div>
-            </code>
+            <CodeWindow />
           </div>
         </div>
       </div>
@@ -147,5 +80,102 @@ const CoderItem = ({ title, value }) => {
       <span className="text-orange-400">{value}</span>
       <span className="text-gray-400">,</span>
     </div>
+  );
+};
+
+const AndSign = () => <span className="text-amber-300">&amp;&amp;</span>;
+
+const FnItem = ({ title, condition, hasAnd = true }) => {
+  return (
+    <div>
+      <span className="ml-12 lg:ml-24 text-cyan-400">this.</span>
+      <span className="mr-2 text-white">{title}</span>
+      {condition && <span className="text-orange-400">{condition} </span>}
+      {hasAnd && <AndSign />}
+    </div>
+  );
+};
+
+const softSkills = [
+  { title: "experienceTime", value: "6 years", condition: `\u2248 6y` },
+  { title: "hardWorker", value: "true", condition: "" },
+  { title: "quickLearner", value: "true", condition: "" },
+  { title: "problemSolver", value: "true", condition: "" },
+  { title: "potentialLeader", value: "true", condition: "" },
+  { title: "proactive", value: "true", condition: "" },
+];
+
+const CodeWindow = () => {
+  return (
+    <code className="font-mono text-xs md:text-sm lg:text-base">
+      <div className="blink">
+        <span className="mr-2 text-pink-500">const</span>
+        <span className="mr-2 text-white">coder</span>
+        <span className="mr-2 text-pink-500">=</span>
+        <span className="text-gray-400">{"{"}</span>
+      </div>
+      <div>
+        <span className="ml-4 lg:ml-8 mr-2 text-white">name:</span>
+        <span className="text-gray-400">{`'`}</span>
+        <span className="text-amber-300">{personalData.name}</span>
+        <span className="text-gray-400">{`',`}</span>
+      </div>
+      <div>
+        <span className="ml-4 lg:ml-8 mr-2 text-white">from:</span>
+        <span className="text-gray-400">{`'`}</span>
+        <span className="text-amber-300">{personalData.from}</span>
+        <span className="text-gray-400">{`',`}</span>
+      </div>
+      <div className="ml-4 lg:ml-8 mr-2">
+        <span className=" text-white">skills:</span>
+        <span className="text-gray-400">{`['`}</span>
+        {skillsData.map((skill, i) => (
+          <React.Fragment key={skill}>
+            <span className="text-amber-300">{skill}</span>
+            {skillsData.length - 1 > i && (
+              <span className="text-gray-400">&apos;, &apos;</span>
+            )}
+          </React.Fragment>
+        ))}
+        <span className="text-gray-400">{"'],"}</span>
+      </div>
+      {softSkills.map((softSkill) => (
+        <CoderItem
+          key={softSkill.title}
+          title={softSkill.title}
+          value={softSkill.value}
+        />
+      ))}
+      <div>
+        <span className="ml-4 lg:ml-8 mr-2 text-green-400">hireable:</span>
+        <span className="text-orange-400">function</span>
+        <span className="text-gray-400">{"() {"}</span>
+      </div>
+      <div>
+        <span className="ml-8 lg:ml-16 mr-2 text-orange-400">return</span>
+        <span className="text-gray-400">{`(`}</span>
+      </div>
+      {softSkills.map((softSkill) => (
+        <FnItem
+          title={softSkill.title}
+          condition={softSkill.condition}
+          key={softSkill.title}
+        />
+      ))}
+      <FnItem
+        title="skills.length"
+        condition={`\u2248 ${skillsData.length}`}
+        hasAnd={false}
+      />
+      <div>
+        <span className="ml-8 lg:ml-16 mr-2 text-gray-400">{`);`}</span>
+      </div>
+      <div>
+        <span className="ml-4 lg:ml-8 text-gray-400">{`};`}</span>
+      </div>
+      <div>
+        <span className="text-gray-400">{`};`}</span>
+      </div>
+    </code>
   );
 };

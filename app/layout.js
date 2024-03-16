@@ -26,7 +26,7 @@ export const metadata = {
   //   title: "Portfolio - Patrick Figueroa",
   //   description:
   //     "Experienced Software Engineer with 6 years of experience with a proven track record of delivering high-impact solutions for leading companies. This portfolio takes as base Abu Said project with some modifications.",
-  //   // url: 'https://nextjs.org',
+  //   url: "https://portfolio-d8l76g5ag-patrickcsk1-projects.vercel.app/",
   //   siteName: "Patrick Figueroa",
   //   locale: "en_US",
   //   type: "website",
