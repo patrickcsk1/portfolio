@@ -1,11 +1,14 @@
 "use client";
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
 import styles from "../../css/card.module.scss";
 
 const GlowCard = ({ children, identifier }) => {
+  const containerRef = useRef(null);
+  const cardsRef = useRef([]);
+
   useEffect(() => {
-    const CONTAINER = document.querySelector(`.glow-container-${identifier}`);
-    const CARDS = document.querySelectorAll(`.glow-card-${identifier}`);
+    const CONTAINER = containerRef.current;
+    const CARDS = cardsRef.current;
 
     const CONFIG = {
       proximity: 40,
@@ -69,8 +72,12 @@ const GlowCard = ({ children, identifier }) => {
   }, [identifier]);
 
   return (
-    <div className={`glow-container-${identifier} ${styles.glowContainer}`}>
+    <div
+      ref={containerRef}
+      className={`glow-container-${identifier} ${styles.glowContainer}`}
+    >
       <article
+        ref={(el) => (cardsRef.current = [...cardsRef.current, el])}
         className={`${styles.glowCard} glow-card-${identifier} h-fit cursor-pointer border border-[#2a2e5a] transition-all duration-300 relative bg-[#101123] text-gray-200 rounded-xl hover:border-transparent w-full`}
       >
         <div className="glows"></div>

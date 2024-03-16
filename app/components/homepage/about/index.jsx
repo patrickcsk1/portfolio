@@ -1,7 +1,7 @@
 // @flow strict
 
 import { personalData } from "@/utils/data/personal-data";
-import Image from "next/image";
+import Image from "next/legacy/image";
 
 function AboutSection() {
   return (

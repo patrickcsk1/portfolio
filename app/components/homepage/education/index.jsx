@@ -1,5 +1,5 @@
 // @flow strict
-import Image from "next/image";
+import Image from "next/legacy/image";
 
 import { educations } from "@/utils/data/educations";
 import { BsPersonWorkspace } from "react-icons/bs";

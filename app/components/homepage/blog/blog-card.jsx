@@ -1,6 +1,6 @@
 // @flow strict
 import { timeConverter } from "@/utils/time-converter";
-import Image from "next/image";
+import Image from "next/legacy/image";
 import Link from "next/link";
 import { BsHeartFill } from "react-icons/bs";
 import { FaCommentAlt } from "react-icons/fa";
