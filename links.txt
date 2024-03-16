@@ -1,0 +1,14 @@
+For email service:
+  https://dashboard.emailjs.com/admin/account
+
+To convert picture to ico:
+  https://favicon.io/favicon-converter/
+
+To get free pics:
+  https://www.freepik.com/free-photos-vectors/cartoon-developer
+
+To get free icons for skills
+https://www.vectorlogo.zone/logos/nestjs/index.html
+
+Original repositorie base:
+  https://github.com/said7388/developer-portfolio
