@@ -11,7 +11,7 @@ function Footer() {
         </div>
         <div className="flex flex-col md:flex-row items-center justify-between">
           <p className="text-sm">
-            © Developer Portfolio by{" "}
+            © Portfolio Developed by{" "}
             <Link
               aria-label="linkedin-personal"
               target="_blank no-referrer no-opener"
@@ -21,6 +21,7 @@ function Footer() {
               {personalData.name}
             </Link>
           </p>
+          <p className="text-sm">Inspiration/Motivation from Abu Said</p>
         </div>
       </div>
     </footer>

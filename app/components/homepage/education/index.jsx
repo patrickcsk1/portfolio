@@ -11,15 +11,8 @@ function Education() {
   return (
     <section
       id="education"
-      className="relative z-30 border-t my-12 lg:my-24 border-[#25213b]"
+      className="relative z-30 border-t my-12 lg:my-24 border-[#25213b] bg-[url('/section.svg')] bg-cover bg-center bg-no-repeat"
     >
-      <Image
-        src="/section.svg"
-        alt="Hero"
-        width={1572}
-        height={795}
-        className="absolute top-0 -z-10"
-      />
       <div className="flex justify-center -translate-y-[1px]">
         <div className="w-3/4">
           <div className="h-[1px] bg-gradient-to-r from-transparent via-violet-500 to-transparent  w-full" />
@@ -51,14 +44,7 @@ function Education() {
                   key={education.id}
                   identifier={`education-${education.id}`}
                 >
-                  <div className="p-3 relative text-white">
-                    <Image
-                      src="/blur-23.svg"
-                      alt="Hero"
-                      width={1080}
-                      height={200}
-                      className="absolute bottom-0 opacity-80"
-                    />
+                  <div className="p-3 relative text-white bg-[url('/blur23.svg')] bg-cover bg-center bg-no-repeat">
                     <div className="flex justify-center">
                       <p className="text-xs sm:text-sm text-[#16f2b3]">
                         {education.duration}
