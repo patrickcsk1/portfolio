@@ -44,7 +44,7 @@ function Education() {
                   key={education.id}
                   identifier={`education-${education.id}`}
                 >
-                  <div className="p-3 relative text-white bg-[url('/blur23.svg')] bg-cover bg-center bg-no-repeat">
+                  <div className="p-3 relative text-white bg-[url('/blur-23.svg')] bg-cover bg-center bg-no-repeat">
                     <div className="flex justify-center">
                       <p className="text-xs sm:text-sm text-[#16f2b3]">
                         {education.duration}

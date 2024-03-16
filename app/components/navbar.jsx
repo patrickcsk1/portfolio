@@ -2,27 +2,9 @@
 "use client";
 import { menues } from "@/utils/data/menues";
 import { personalData } from "@/utils/data/personal-data";
-import { scrollToTop } from "@/utils/scrolls";
-
-const offsetSection = {
-  about: 120,
-  experience: 75,
-  skills: 75,
-  education: 75,
-  contact: 75,
-};
+import { scrollToSection, scrollToTop } from "@/utils/scrolls";
 
 function Navbar() {
-  const scrollToSection = (section) => {
-    const sectionElem = document.getElementById(section);
-    if (sectionElem) {
-      window.scrollTo({
-        top: sectionElem.offsetTop - offsetSection[section],
-        behavior: "smooth",
-      });
-    }
-  };
-
   return (
     <nav className="bg-[#0d1224] sticky top-0 flex items-center justify-between py-5 z-50">
       <button

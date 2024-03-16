@@ -7,6 +7,7 @@ import { TbMailForward } from "react-icons/tb";
 import { toast } from "react-toastify";
 
 function ContactForm() {
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const [input, setInput] = useState({
     name: "",
     email: "",
@@ -38,6 +39,7 @@ function ContactForm() {
     const templateID = process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID;
     const options = { publicKey: process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY };
 
+    setIsSubmitting(true);
     try {
       const res = await emailjs.send(serviceID, templateID, input, options);
 
@@ -51,6 +53,8 @@ function ContactForm() {
       }
     } catch (error) {
       toast.error(error?.text || error);
+    } finally {
+      setIsSubmitting(false);
     }
   };
 
@@ -132,6 +136,7 @@ function ContactForm() {
               aria-label="send-mail-btn"
               className="flex items-center gap-1 hover:gap-3 rounded-full bg-gradient-to-r from-pink-500 to-violet-600 px-5 md:px-12 py-2.5 md:py-3 text-center text-xs md:text-sm font-medium uppercase tracking-wider text-white no-underline transition-all duration-200 ease-out hover:text-white hover:no-underline md:font-semibold"
               role="button"
+              disabled={isSubmitting}
               onClick={handleSendMail}
             >
               <span>Send Message</span>
